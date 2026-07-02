@@ -1,0 +1,161 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Necessário para só mostrar tela após Vue carregar */
+[v-cloak] {
+  display: none;
+}
+
+/* CSS extra */
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f5f5f5;
+  color: #1f2937;
+}
+
+.container {
+  max-width: 720px;
+  margin: 40px auto;
+  padding: 16px;
+}
+
+.card {
+  background: #ffffff;
+  border: 1px solid #dddddd;
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.lead {
+  margin-bottom: 16px;
+  color: #4b5563;
+  line-height: 1.5;
+}
+
+.info-block {
+  margin-top: 16px;
+  padding: 16px;
+  background: #f9fafb;
+  border-radius: 8px;
+}
+
+.info-block h2 {
+  margin-bottom: 12px;
+  font-size: 18px;
+}
+
+.info-block p + p {
+  margin-top: 8px;
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.form-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.field span {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #cccccc;
+  border-radius: 8px;
+  font: inherit;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 16px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  font: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.button-primary {
+  background: #111827;
+  color: #ffffff;
+}
+
+.button-secondary {
+  background: #ffffff;
+  border-color: #cccccc;
+  color: #111827;
+}
+
+.text-link {
+  color: #111827;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.status {
+  margin-top: 16px;
+  color: #4b5563;
+}
+
+.status-error {
+  color: #b91c1c;
+}
+
+.page-note {
+  margin-bottom: 16px;
+}
+
+.page-note-title {
+  margin-bottom: 6px;
+  font-size: 28px;
+}
+
+.page-note-text {
+  color: #6b7280;
+}
+
+
+
+@media (max-width: 640px) {
+  .container {
+    margin: 24px auto;
+  }
+
+  .card {
+    padding: 20px;
+  }
+
+  .actions {
+    flex-direction: column;
+  }
+
+  .button {
+    width: 100%;
+  }
+}

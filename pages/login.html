@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Login - Frontend Template</title>
+        <link rel="stylesheet" href="../style.css">
+    </head>
+
+    <body>
+        <main id="app" class="container" v-cloak>
+            <section class="card">
+                <app-page-note title="Login"></app-page-note>
+
+                <p class="lead">
+                    Página base de login
+                </p>
+
+                <form class="form-stack" @submit.prevent="login">
+                    <label class="field">
+                        <span>Email</span>
+                        <input type="email" placeholder="Digite seu email" v-model="email">
+                    </label>
+
+                    <label class="field">
+                        <span>Senha</span>
+                        <input type="password" placeholder="Digite sua senha" v-model="password">
+                    </label>
+
+                    <button type="submit" class="button button-primary" :disabled="loginLoading">
+                        {{ loginLoading ? 'Entrando...' : 'Entrar' }}
+                    </button>
+                </form>
+
+                <p v-if="errorMessage" class="status status-error">{{ errorMessage }}</p>
+                <p v-if="tokenReceived" class="status">Login realizado com sucesso.</p>
+
+                <p class="status">
+                    <a class="text-link" href="../index.html">Voltar para a página inicial</a>
+                </p>
+            </section>
+        </main>
+
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script src="../js/api.js"></script>
+        <script src="../js/auth.js"></script>
+        <script src="../js/components/app-page-note.js"></script>
+        <script src="../js/login.js"></script>
+    </body>
+
+</html>

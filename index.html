@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Frontend Template</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+        <main id="app" class="container" v-cloak>
+            <section class="card">
+                <app-page-note title="Frontend Template"></app-page-note>
+
+                <p class="lead">
+                    Este template mostra uma estrutura minima com HTML, Vue por CDN e arquivos JS separados por pagina.
+                </p>
+
+                <div class="actions">
+                    <a class="button button-primary" href="pages/login.html" v-if="!isLoggedIn">
+                        Ir para login
+                    </a>
+
+                    <button class="button button-secondary" type="button" @click="logout" v-else>
+                        Sair
+                    </button>
+                </div>
+
+                <p v-if="loading" class="status">Carregando usuario...</p>
+                <p v-else-if="errorMessage" class="status status-error">{{ errorMessage }}</p>
+                <p v-else-if="!isLoggedIn" class="status">
+                    Nenhuma sessão ativa. Realize o login
+                </p>
+
+                <section v-else-if="user" class="info-block">
+                    <h2>Usuario autenticado</h2>
+                    <p><strong>Email:</strong> {{ user.email }}</p>
+                    <p><strong>Criado em:</strong> {{ formatDate(user.created_at) }}</p>
+                </section>
+            </section>
+        </main>
+
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script src="js/api.js"></script>
+        <script src="js/auth.js"></script>
+        <script src="js/components/app-page-note.js"></script>
+        <script src="js/index.js"></script>
+    </body>
+
+</html>
