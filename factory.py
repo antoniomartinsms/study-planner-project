@@ -31,7 +31,7 @@ def create_app():
 
     app.config.from_object(Config)
 
-    from models import User
+    from models import User, Subject, StudyTask
 
     db.init_app(app)
     migrate.init_app(app, db)
