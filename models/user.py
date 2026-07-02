@@ -15,6 +15,8 @@ class User(db.Model):
 
     created_at = db.Column(db.DateTime, default=lambda: datetime.now(timezone.utc))
 
+    subjects = db.relationship("Subject", back_populates="user")
+
     @property
     def password(self):
         raise AttributeError("Password is not a readable attribute")
