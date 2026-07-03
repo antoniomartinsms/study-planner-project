@@ -37,7 +37,7 @@ def get_tasks():
     return [StudyTaskResponse.model_validate(task) for task in tasks], 200
 
 @study_task_controller.post("/")
-@jwt_required
+@jwt_required()
 @api.validate(
     json=StudyTaskRequest,
     resp=Response(
@@ -129,7 +129,7 @@ def update_task(id):
     task.subject_id = subject.id
 
     if data["completed"] and not task.completed:
-        task.completed_at = datetime.utcnow()
+        task.completed_at = datetime.now(timezone.utc)
     elif not data["completed"]:
         task.completed_at = None
 
