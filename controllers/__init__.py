@@ -1,2 +1,3 @@
 from .user_controller import user_controller
 from .auth_controller import auth_controller
+from .study_task_controller import study_task_controller

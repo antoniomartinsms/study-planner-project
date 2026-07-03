@@ -45,10 +45,11 @@ def create_app():
 
         return current_user
 
-    from controllers import user_controller, auth_controller
+    from controllers import user_controller, auth_controller,study_task_controller
 
     app.register_blueprint(user_controller)
     app.register_blueprint(auth_controller)
+    app.register_blueprint(study_task_controller)
 
     api.register(app)
 
