@@ -1,6 +1,7 @@
 from factory import db
 from pydantic import BaseModel, ConfigDict
 from utils.response_schema import OrmBase, ResponseBase, GenericResponse
+from datetime import datetime
 
 class Subject(db.Model):
     __tablename__ = "subject"
@@ -12,3 +13,24 @@ class Subject(db.Model):
 
     user = db.relationship("User", back_populates="subjects")
     tasks = db.relationship("StudyTask", back_populates="subject")
+
+class SubjectResponse(OrmBase):
+    id: int
+    name: str
+    description: str | None
+    user_id: int
+
+    total_tasks: int
+    completed_tasks: int
+    progress_percentage: float
+    next_due_date: datetime | None
+
+
+class SubjectRequest(ResponseBase):
+    name: str
+    description: str | None = None
+
+
+class SubjectUpdateRequest(ResponseBase):
+    name: str
+    description: str | None = None
