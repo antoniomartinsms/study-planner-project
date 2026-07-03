@@ -50,10 +50,11 @@ def subject_to_response(subject: Subject):
     def pegar_data(task):
         return task.due_date
 
-    next_due_date = min(
-        pending_tasks,
-        key=pegar_data
-    ).due_date
+    if pending_tasks:
+        next_due_date = min(
+            pending_tasks,
+            key=pegar_data
+        ).due_date
 
     return SubjectResponse(
         id=subject.id,
@@ -100,7 +101,9 @@ def get_subjects():
     tags=["subjects"],
 )
 def create_subject():
-
+    """
+    Create Subjects
+    """
     data = request.json
 
     subject = Subject(
