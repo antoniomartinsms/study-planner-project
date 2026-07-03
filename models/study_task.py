@@ -19,7 +19,7 @@ class StudyTask(db.Model):
 class StudyTaskResponse(OrmBase):
     id: int
     title: str
-    description: str
+    description: str | None
     due_date: datetime | None
     completed: bool
     completed_at: datetime | None
@@ -37,24 +37,3 @@ class StudyTaskUpdateRequest(ResponseBase):
     due_date: datetime
     subject_id: int
     completed: bool
-
-class SubjectResponse(OrmBase):
-    id: int
-    name: str
-    description: str | None
-    user_id: int
-
-    total_tasks: int
-    completed_tasks: int
-    progress_percentage: float
-    next_due_date: datetime | None
-
-
-class SubjectRequest(ResponseBase):
-    name: str
-    description: str | None = None
-
-
-class SubjectUpdateRequest(ResponseBase):
-    name: str
-    description: str | None = None
